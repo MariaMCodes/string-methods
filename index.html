@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String Methods</title>
+</head>
+
+<body>
+    <!-- From https://www.w3schools.com/js/js_string_methods.asp -->
+    <!-- JS String Length -->
+    <p>Length of the string is:</p>
+    <p id="demo"></p>
+
+    <!-- JS String slice -->
+    <p>Sliced (extracted) part of the string is:</p>
+    <p id="demo1"></p>
+
+    <p>Extract a part of string counting from the end:</p>
+    <p id="demo2"></p>
+
+    <!-- JS String substring -->
+    <p>Substring() method extracts a part of a string and returns the extracted parts in a new string:</p>
+    <p id="demo3"></p>
+
+    <!-- JS String substr -->
+    <p>Substr() method extract a part of a string and returns the extracted parts in a new string:</p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p>If the first parameter is negative, the position counts from the end of the string.</p>
+    <p id="demo6"></p>
+
+    <!-- Replacing String Content -->
+    <p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo7">Please visit Microsoft</p>
+    <p>To replace all matches, use a regular expression with a /g flag (global match):</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo8">Please visit Microsoft and Microsoft!</p>
+
+
+    <!-- JS String ReplaceAll() -->
+    <p id="demo9"></p>
+
+    <!-- JS String to UpperCase() -->
+    <p>Convert string to upper case:</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo10">Hello World!</p>
+
+
+    <!-- JS String to LowerCase() -->
+    <p>Convert string to lower case:</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo11">Hello World!</p>
+
+
+    <!-- JS String concat() -->
+    <p>The concat() method joins two or more strings:</p>
+    <p id="demo12"></p>
+
+    <!-- JS String trim() -->
+    <p>trim() method removes whitespace from both sides of a string:</p>
+    <p id="demo13"></p>
+
+    <!-- JS String trimStart() -->
+    <p>trimStart() removes whitespace only from the start of a string:</p>
+    <p id="demo14"></p>
+
+
+    <!-- JS String trimEnd() -->
+    <p>trimEnd() removes whitespace only from the end of a string.</p>
+    <p id="demo15"></p>
+
+    <!-- JS String padStart() -->
+    <p>The padStart() method pads a string from the start.
+        <br> It pads the string with another string (multiple times) until it reaches a given length.
+
+    </p>
+    <p id="demo16"></p>
+
+    <p id="demo17"></p>
+
+    <!-- JS String padEnd() -->
+    <p>The padEnd() method pads a string from the end.
+        <br> It pads a string with another string (multiple times) until it reaches a given length.
+
+    </p>
+    <p id="demo18"></p>
+
+    <!-- JS String charAt() -->
+    <p>charAt() method returns the character at a given position in a string:</p>
+    <p id="demo19"></p>
+
+    <!-- JS String charCodeAt() -->
+    <p>charCodeAt() method returns the unicode of the character at a given position in a string:</p>
+    <p id="demo20"></p>
+
+    <!-- Property Access -->
+    <p>The first character in the string is:</p>
+    <p id="demo21"></p>
+
+    <!-- JS String split() -->
+    <p>Display the first array element, after a string split: </p>
+    <p id="demo22"></p>
+
+    <script>
+        //  String Length
+        let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let length = text.length;
+        document.getElementById("demo").innerHTML = length;
+
+        //String Slice
+        let text1 = "Apple, Banana, Kiwi";
+        document.getElementById("demo1").innerHTML = text1.slice(7, 13);
+        document.getElementById("demo2").innerHTML = text1.slice(-12);
+        document.getElementById("demo3").innerHTML = text1.substring(7, 13);
+        document.getElementById("demo4").innerHTML = text1.substr(7, 6);
+        document.getElementById("demo5").innerHTML = text1.substr(7);
+        document.getElementById("demo6").innerHTML = text1.substr(-4);
+
+        //Replacing String Content 
+        function myFunction() {
+            let text2 = document.getElementById("demo7").innerHTML;
+            document.getElementById("demo7").innerHTML =
+                text2.replace("Microsoft", "W3Schools");
+        }
+
+        function myFunction() {
+            let text3 = document.getElementById("demo8").innerHTML;
+            document.getElementById("demo8").innerHTML = text3.replace(/Microsoft/g, "W3Schools");
+        }
+
+        //ReplaceAll() Method  - not working
+        let text4 = "I love cats. Cats are very easy to love. Cats are very popular."
+        text5 = text4.replaceAll(/Cats/g, "Dogs");
+        text5 = text4.replaceAll(/cats/g, "dogs");
+        document.getElementById("demo9").innerHTML = text5;
+
+        //JS String to UpperCase()
+        function myFunction() {
+            let text6 = document.getElementById("demo10").innerHTML;
+            document.getElementById("demo10").innerHTML = text6.toUpperCase();
+        }
+
+        //JS String to LowerCase()
+        function myFunction() {
+            let text7 = document.getElementById("demo11").innerHTML;
+            document.getElementById("demo11").innerHTML = text7.toLowerCase();
+        }
+
+        //JS String Concat()
+        let texta = "Hello";
+        let textb = "World!";
+        let textc = texta.concat(" ", textb);
+        document.getElementById("demo12").innerHTML = textc;
+
+
+        // JS String trim() 
+        let text8 = "      Hello World!      ";
+        let text9 = text8.trim();
+        document.getElementById("demo13").innerHTML = "Length text8 = " + text8.length +
+            "<br>Length text9 = " + text9.length;
+
+        // JS String trimStart()
+        let text10 = "      Hello World!      ";
+        let text11 = text10.trimStart();
+        document.getElementById("demo14").innerHTML = "Length text10 = " + text10.length +
+            "<br>Length text11 = " + text11.length;
+
+        // JS String trimEnd()
+        let text12 = "      Hello World!      ";
+        let text13 = text12.trimEnd();
+        document.getElementById("demo15").innerHTML = "Length text12 = " + text12.length +
+            "<br>Length text13 = " + text13.length;
+
+        // JS String padStart()
+        let text14 = "5";
+        text15 = text14.padStart(4, "0");
+
+        document.getElementById("demo16").innerHTML = text15;
+        // The padStart() method is a string method.
+        // To pad a number, convert the number to a string first:
+        let numb = 5;
+        let text16 = numb.toString();
+        document.getElementById("demo17").innerHTML = text16.padStart(4, "0");
+
+        // JS String padEnd()
+        let text17 = "5";
+        text18 = text17.padEnd(4, "0");
+        document.getElementById("demo18").innerHTML = text18;
+
+        // JS String charAt()
+        var text19 = "HELLO WORLD";
+        document.getElementById("demo19").innerHTML = text19.charAt(0);
+
+        // JS String charCodeAt()
+        let text20 = "HELLO WORLD";
+        document.getElementById("demo20").innerHTML = text20.charCodeAt(0);
+
+        // Property Access
+        let text21 = "HELLO WORLD";
+        document.getElementById("demo21").innerHTML = text21[0];
+
+        // JS String split()
+        let text22 = "a,b,c,d,e,f";
+        const myArray = text22.split(",");
+        document.getElementById("demo22").innerHTML = myArray[0];
+        // If the separator is omitted, the returned array will contain the whole string in index [0].
+        // text.split(",")    // Split on commas
+        // text.split(" ")    // Split on spaces
+        // text.split("|")    // Split on pipe
+    </script>
+</body>
+
+</html>
